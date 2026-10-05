@@ -455,6 +455,25 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
  .at-img{width:100%;height:376px}
 }
 
+/* ---------- projects hero ---------- */
+.proj-hero{padding:180px 24px 128px;text-align:center}
+.proj-hero h1{max-width:711px;margin:0 auto;font:800 48px/1.08 var(--kk-font-display);letter-spacing:-.025em;color:var(--ink-2)}
+.proj-hero h1 span{color:var(--kk-accent)}
+.rating{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+.rating-chip{display:inline-flex;align-items:center;gap:8px;box-sizing:border-box;height:33.2px;padding:4px 10px;border-radius:4px;background:#fff;box-shadow:inset 0 0 0 1px var(--kk-ink);font:700 18px/25.2px var(--kk-font-display);letter-spacing:-.02em;color:#171717}
+.rating-chip svg{flex:none;width:20px;height:20px}
+.rating p{margin:0;font-size:18px;line-height:1.6;letter-spacing:-.01em;color:var(--ink-2)}
+@media (max-width:1199px){
+ .proj-hero{padding:144px 24px 92px}
+ .proj-hero h1{max-width:649px;font-size:44px}
+ .rating p{font-size:17px}
+}
+@media (max-width:809px){
+ .proj-hero{padding:128px 24px 80px}
+ .proj-hero h1{font-size:38px}
+ .rating{flex-direction:column-reverse;gap:12px}
+}
+
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion:reduce){
  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
