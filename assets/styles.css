@@ -582,7 +582,7 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
 /* ---------- 3D hero (Home) ---------- */
 .kk-hero{position:relative;overflow:hidden}
 .kk-hero .kk-wrap{position:relative;z-index:2}
-.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:calc(var(--base,1) * var(--in,1) * var(--out,1))}
 .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,10,10,.85) 0%,rgba(10,10,10,.6) 38%,transparent 62%)}
 .kk-hero .kk-hero-grid{grid-template-columns:minmax(0,1fr)}
 .kk-hero .kk-hero-copy{max-width:760px}
@@ -593,10 +593,14 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
 .kk-hero .kk-btn-primary:hover{box-shadow:0 0 0 1px rgba(57,255,136,.6),0 0 48px rgba(57,255,136,.55)}
 .kk-hero.no-webgl{background-image:radial-gradient(circle at 72% 45%,rgba(57,255,136,.16),transparent 60%),linear-gradient(var(--kk-grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--kk-grid-line) 1px,transparent 1px);background-size:auto,32px 32px,32px 32px}
 .no-webgl .hero-canvas{display:none}
-@media (max-width:809px){
+/* Below 1200px the copy spans the hero, so the network sits centred behind it: dim it and scrim the copy. */
+@media (max-width:1199px){
  .hero-scrim{background:rgba(10,10,10,.65)}
- .hero-canvas{opacity:.45}
+ .hero-canvas{--base:.45}
 }
 /* Pre-paint hide for the hero load sequence (index.html adds .intro-pending only when
    motion is wanted, and removes it after 3s whatever happens; GSAP removes it sooner). */
-.intro-pending .site-header,.intro-pending .kk-hero .kk-label,.intro-pending .kk-hero .hero-line,.intro-pending .kk-hero .kk-hero-sub,.intro-pending .kk-hero .kk-cta-row,.intro-pending .kk-hero .kk-stats{opacity:0}
+.intro-pending .site-header,.intro-pending .kk-hero .kk-label,.intro-pending .kk-hero .hero-line,.intro-pending .kk-hero .kk-hero-sub,.intro-pending .kk-hero .kk-cta-row,.intro-pending .kk-hero .kk-stats{opacity:0;visibility:hidden}
+/* Footer icon glyphs are drawn in white on a currentColor shape; on dark the shape is light, so draw them in the surface colour. */
+.foot-icons [stroke="#fff"]{stroke:var(--kk-sheet)}
+.foot-icons [fill="#fff"]{fill:var(--kk-sheet)}

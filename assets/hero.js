@@ -64,7 +64,7 @@ async function boot(opts = {}) {
   // 1. Copy first.
   const motion = reduce ? null : await import('./hero-motion.js').catch(() => null);
   if (gen !== generation) return;
-  if (motion && !opts.restored) {
+  if (motion && !opts.restored && document.documentElement.classList.contains('intro-pending')) {
     const intro = motion.playIntro();
     cleanups.push(intro.kill);
     await intro.done;
@@ -107,7 +107,11 @@ window.addEventListener('pagehide', teardown);
 window.addEventListener('pageshow', e => {
   if (!e.persisted) return;
   const old = document.querySelector('.kk-hero .hero-canvas');
-  if (old) old.replaceWith(old.cloneNode(false));
+  if (old) {
+    const fresh = /** @type {HTMLCanvasElement} */ (old.cloneNode(false));
+    fresh.removeAttribute('style');
+    old.replaceWith(fresh);
+  }
   boot({ restored: true });
 });
 

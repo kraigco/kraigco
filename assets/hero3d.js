@@ -171,14 +171,15 @@ export function createHeroScene(canvas, opts = {}) {
   }
 
   // Keep the canvas the size of the hero; centre the network at 72% of the width on
-  // wide canvases (the copy sits on the left) and at 50% on narrow ones.
+  // desktop (the copy sits on the left) and at 50% below 1200px, where it sits dimmed
+  // behind the copy (same breakpoint as styles.css).
   const host = canvas.parentElement || canvas;
   function resize() {
     const w = host.clientWidth, h = host.clientHeight;
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.setViewOffset(w, h, w >= 810 ? -0.22 * w : 0, 0, w, h);
+    camera.setViewOffset(w, h, window.matchMedia('(min-width: 1200px)').matches ? -0.22 * w : 0, 0, w, h);
     camera.updateProjectionMatrix();
     if (!running) renderer.render(scene, camera);
   }
