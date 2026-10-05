@@ -578,3 +578,22 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
 .bubble-q{background:var(--glass-bg);color:var(--kk-ink);box-shadow:inset 0 0 0 1px var(--glass-border)}
 .bubble-a{background:var(--kk-sheet);box-shadow:inset 0 0 0 1px var(--kk-rule-strong),var(--kk-shadow-hard)}
 .glow{box-shadow:var(--glow)}
+
+/* ---------- 3D hero (Home) ---------- */
+.kk-hero{position:relative;overflow:hidden}
+.kk-hero .kk-wrap{position:relative;z-index:2}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,10,10,.85) 0%,rgba(10,10,10,.6) 38%,transparent 62%)}
+.kk-hero .kk-hero-grid{grid-template-columns:minmax(0,1fr)}
+.kk-hero .kk-hero-copy{max-width:760px}
+.kk-hero .kk-h1{font-size:clamp(44px,7.2vw,104px);line-height:.96;letter-spacing:-.045em}
+.hero-line{display:block}
+.kk-hero .kk-accent{text-shadow:0 0 30px rgba(57,255,136,.45)}
+.kk-hero .kk-btn-primary{box-shadow:var(--glow)}
+.kk-hero .kk-btn-primary:hover{box-shadow:0 0 0 1px rgba(57,255,136,.6),0 0 48px rgba(57,255,136,.55)}
+.kk-hero.no-webgl{background-image:radial-gradient(circle at 72% 45%,rgba(57,255,136,.16),transparent 60%),linear-gradient(var(--kk-grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--kk-grid-line) 1px,transparent 1px);background-size:auto,32px 32px,32px 32px}
+.no-webgl .hero-canvas{display:none}
+@media (max-width:809px){
+ .hero-scrim{background:rgba(10,10,10,.65)}
+ .hero-canvas{opacity:.45}
+}
