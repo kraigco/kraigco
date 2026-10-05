@@ -3,18 +3,18 @@
    (tokens hoisted to :root so the rest of the site shares them).
    Part 2: site shell. */
 :root{
- --kk-paper:#F4F1EA;
- --kk-paper-2:#EAE6DD;
- --kk-sheet:#FFFFFF;
- --kk-ink:#101114;
- --kk-graphite:#3F434B;
- --kk-steel:#5F636A;
- --kk-rule:#D8D3C8;
- --kk-rule-strong:#B9B3A6;
- --kk-rule-on-ink:#33363D;
- --kk-on-ink-muted:#B8B4AA;
- --kk-vermilion:#C2410C;
- --kk-vermilion-press:#9A3412;
+ --kk-paper:#0a0a0a;
+ --kk-paper-2:#0f1110;
+ --kk-sheet:#141716;
+ --kk-ink:#EDEFEC;
+ --kk-graphite:#A3A8A4;
+ --kk-steel:#7C827E;
+ --kk-rule:rgba(255,255,255,.08);
+ --kk-rule-strong:rgba(255,255,255,.16);
+ --kk-rule-on-ink:rgba(255,255,255,.12);
+ --kk-on-ink-muted:#A3A8A4;
+ --kk-vermilion:#39FF88;
+ --kk-vermilion-press:#2BE076;
  --kk-bg:var(--kk-paper);
  --kk-surface:var(--kk-sheet);
  --kk-text:var(--kk-ink);
@@ -23,17 +23,20 @@
  --kk-border:var(--kk-rule);
  --kk-accent:var(--kk-vermilion);
  --kk-accent-press:var(--kk-vermilion-press);
- --kk-on-accent:var(--kk-sheet);
+ --kk-on-accent:#0a0a0a;
  --kk-focus:var(--kk-vermilion);
- --kk-grid-line:rgba(16,17,20,.06);
- --kk-grid-line-ink:rgba(244,241,234,.07);
+ --kk-grid-line:rgba(57,255,136,.06);
+ --kk-grid-line-ink:rgba(57,255,136,.06);
  --kk-font-display:"Archivo","Helvetica Neue",Arial,sans-serif;
  --kk-font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
  --kk-font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
  --kk-radius:6px;
  --kk-radius-sm:4px;
- --kk-shadow-hard:4px 4px 0 0 var(--kk-ink);
- --kk-ease:cubic-bezier(.2,.7,.2,1)}
+ --kk-shadow-hard:0 8px 32px rgba(57,255,136,.18);
+ --kk-ease:cubic-bezier(.2,.7,.2,1);
+ --glass-bg:rgba(255,255,255,.04);
+ --glass-border:rgba(255,255,255,.10);
+ --glow:0 0 0 1px rgba(57,255,136,.6),0 0 32px rgba(57,255,136,.45)}
 .kk-sec{container-type:inline-size;width:100%;box-sizing:border-box;font-family:var(--kk-font-body);font-size:16px;line-height:1.6;color:var(--kk-text);background:var(--kk-bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .kk-sec *,.kk-sec *::before,.kk-sec *::after{box-sizing:border-box}
 .kk-sec.kk-alt{background:var(--kk-paper-2)}
@@ -279,7 +282,7 @@
    floating CTA, page hero. Values measured from the live site at
    1440 / 810 / 390 px.
    ========================================================================== */
-:root{--ink-2:#16181C;--vr:#C9C4B9;--burger:#2A2D33}
+:root{--ink-2:#EDEFEC;--vr:rgba(255,255,255,.16);--burger:#EDEFEC}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--kk-paper);color:var(--kk-ink);font-family:var(--kk-font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;height:auto}
@@ -542,3 +545,36 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
 @media (prefers-reduced-motion:reduce){
  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* ==========================================================================
+   DARK THEME REMAPS: places where the old ink colour was a fill, or where
+   white/hard-coded colours were used. Tokens above handle everything else.
+   ========================================================================== */
+.kk-hero{border-bottom-color:var(--kk-rule)}
+.kk-head-rule{border-top-color:var(--kk-rule-strong)}
+.kk-step-line,.kk-step:not(:last-child)::before,.kk-wf-step:not(:last-child)::after{background:var(--kk-rule-strong)}
+.kk-faq-item[open] .kk-plus{background:var(--kk-accent);color:var(--kk-on-accent);border-color:var(--kk-accent)}
+.kk-final-card{background-color:var(--kk-sheet);color:var(--kk-ink);box-shadow:inset 0 0 0 1px var(--kk-rule)}
+.kk-final-card .kk-label,.kk-final-card .kk-h2{color:var(--kk-ink)}
+.kk-btn-light{border-color:var(--kk-ink);color:var(--kk-ink)}
+.kk-btn-light:hover{background:var(--kk-ink);color:#0a0a0a}
+.kk-final-card .kk-btn-primary:hover{box-shadow:var(--glow)}
+.site-header{background:rgba(10,10,10,.6);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.site-header.is-open{background:rgba(10,10,10,.92)}
+.brand img{filter:invert(1)}
+.btn-audit,.float-audit{color:var(--kk-on-accent);box-shadow:var(--glow)}
+.nl-card{background:var(--glass-bg);box-shadow:inset 0 0 0 1px var(--glass-border);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.nl-form input[type=email]{background:#0a0a0a;box-shadow:inset 0 0 0 1px var(--kk-rule-strong)}
+.nl-form input[type=email]::placeholder{color:var(--kk-graphite)}
+.btn-dark,.nl-form button,.kk-btn-glass{background:var(--glass-bg);box-shadow:inset 0 0 0 1px var(--glass-border);color:var(--kk-ink);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.kk-btn-glass{border-color:transparent}
+.kk-btn-glass:hover{background:rgba(255,255,255,.08);color:var(--kk-ink)}
+.review-avatar{background:var(--kk-sheet);box-shadow:inset 0 0 0 2px var(--kk-rule-strong)}
+.foot-icons a{background:var(--kk-sheet);box-shadow:inset 0 0 0 1px var(--kk-rule-strong)}
+.t-card{background:var(--kk-sheet)}
+.t-card img,.at-img,.ch-avatar,.ab-intro img{outline-color:rgba(255,255,255,.16)}
+.rating-chip{background:var(--kk-sheet);color:var(--kk-ink);box-shadow:inset 0 0 0 1px var(--kk-rule-strong)}
+.at-copy p,.t-role{color:var(--kk-graphite)}
+.bubble-q{background:var(--glass-bg);color:var(--kk-ink);box-shadow:inset 0 0 0 1px var(--glass-border)}
+.bubble-a{background:var(--kk-sheet);box-shadow:inset 0 0 0 1px var(--kk-rule-strong),var(--kk-shadow-hard)}
+.glow{box-shadow:var(--glow)}
