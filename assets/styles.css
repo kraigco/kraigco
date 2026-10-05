@@ -289,7 +289,7 @@ img{display:block;max-width:100%;height:auto}
    (Framer stacks its 72px in-flow header on top of the desktop 98px offset). */
 .kk-hero{--kk-top:98px}
 @media (max-width:1199px){.kk-hero{--kk-top:170px}}
-@media (max-width:809px){.kk-hero{--kk-top:72px}}
+@media (max-width:809px){.kk-hero{--kk-top:98px}}
 
 /* Custom cursor, as on the live site: arrow by default, hand on anything clickable. */
 html,html *{cursor:url(img/cursor-arrow.svg) 6 4,auto}
@@ -314,7 +314,9 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
 .btn-audit:hover,.float-audit:hover{filter:brightness(1.2)}
 .btn-audit svg{flex:none;width:18px;height:18px}
 .menu-toggle,.menu-extra{display:none}
-.float-audit{position:fixed;right:20px;bottom:76px;z-index:1}
+.float-audit{position:fixed;right:20px;bottom:86px;z-index:1}
+@media (max-width:1199px){.float-audit{bottom:78px}}
+@media (max-width:809px){.float-audit{bottom:88px}}
 
 @media (max-width:1199px){
  .site-header{padding:20px 20px 2px}
@@ -391,6 +393,66 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
  .review blockquote p{line-height:1.8}
  .foot-bar{flex-direction:column;gap:32px}
  .copyright{text-align:center}
+}
+
+/* ---------- testimonials (home) ---------- */
+.testimonials{padding:128px 24px;background:var(--kk-paper)}
+.testimonials h2{margin:0;text-align:center;font:800 48px/1.08 var(--kk-font-display);letter-spacing:-.025em;color:var(--ink-2)}
+.t-cards{display:flex;justify-content:center;gap:30px;margin-top:30px}
+.t-card{display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;width:320px;height:438px;margin:0;padding:5px 0;border-radius:6px;background:#fff;box-shadow:inset 0 0 0 1px var(--kk-rule)}
+.t-card img{width:172px;height:240px;object-fit:cover;border-radius:6px;outline:2px solid #222;outline-offset:-2px}
+.t-quote{width:260px;margin:26px 0 0}
+.t-quote p{margin:0;text-align:center;font:700 14px/1.2 var(--kk-font-display);letter-spacing:-.01em;color:var(--ink-2)}
+.t-quote span{color:var(--kk-accent)}
+.t-who{width:260px;margin-top:17px}
+.t-name{margin:0;font:600 12px/1.1 var(--kk-font-mono);color:var(--kk-ink)}
+.t-role{margin:4px 0 0;font:500 10px/1.1 var(--kk-font-mono);color:#555A62}
+@media (max-width:1199px){
+ .testimonials{padding:92px 24px}
+ .testimonials h2{font-size:44px}
+ .t-cards{margin-top:64px}
+ .t-card{width:310px;height:424px}
+ .t-quote{margin-top:25px}
+ .t-who{text-align:center}
+}
+@media (max-width:809px){
+ .testimonials{padding:80px 24px}
+ .testimonials h2{font-size:38px}
+ .t-cards{flex-direction:column;align-items:center;margin-top:10px}
+ .t-card{width:320px;height:438px}
+ .t-card img{width:180px;height:232px}
+ .t-quote{margin-top:20px}
+ .t-who{width:100%;text-align:center}
+ /* live phone layout spaces the two cards differently */
+ .t-card:first-child .t-quote{width:240px}
+ .t-card:first-child .t-who{margin-top:2px}
+ .t-card:last-child .t-quote{margin-top:48px}
+}
+
+/* ---------- about teaser (home) ---------- */
+.about-teaser{padding:128px 0 92px;background:var(--kk-paper-2)}
+.at-row{display:flex;align-items:center;width:86%;margin:0 auto}
+.at-copy{flex:none;width:44.25%;margin:0 6.37%}
+.at-copy h2{margin:0;font:800 48px/1.08 var(--kk-font-display);letter-spacing:-.025em;color:var(--ink-2)}
+.at-copy p{max-width:486px;margin:24px 0 0;font-size:18px;line-height:1.6;letter-spacing:-.01em;color:#2A2D33}
+.btn-dark{display:inline-flex;align-items:center;gap:12px;margin-top:24px;padding:12px 20px;border-radius:var(--kk-radius);background:var(--kk-ink);color:#fff;font:700 17px/23.8px var(--kk-font-body);text-decoration:none;transition:filter .2s ease}
+.btn-dark:hover{filter:brightness(1.2)}
+.btn-dark svg{flex:none;width:22px;height:22px}
+.at-img{flex:none;width:43%;height:600px;object-fit:cover;border-radius:6px;outline:1px solid var(--kk-ink);outline-offset:-1px}
+@media (max-width:1199px){
+ .about-teaser{padding:80px 80px 48px}
+ .at-row{width:auto}
+ .at-copy{width:51.53%;margin:0 5.21%}
+ .at-copy h2{font-size:44px}
+ .at-copy p{max-width:none;font-size:17px}
+ .at-img{width:38%;height:408px}
+}
+@media (max-width:809px){
+ .about-teaser{padding:72px 48px 48px}
+ .at-row{flex-direction:column-reverse;align-items:stretch}
+ .at-copy{width:auto;margin:24px 0 0}
+ .at-copy h2{font-size:38px}
+ .at-img{width:100%;height:376px}
 }
 
 /* ---------- motion ---------- */
