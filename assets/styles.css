@@ -474,6 +474,41 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
  .rating{flex-direction:column-reverse;gap:12px}
 }
 
+/* ---------- contact hero ---------- */
+.contact-hero{box-sizing:border-box;min-height:960px;padding:144px 24px 48px}
+.ch-wrap{max-width:1200px;margin:0 auto}
+.bubble{box-sizing:border-box;margin:0;padding:32px;font:800 48px/1.08 var(--kk-font-display);letter-spacing:-.025em}
+.bubble-q{width:692px;margin-left:auto;border-radius:6px 6px 0;background:var(--kk-ink);color:#fff}
+.ch-answer{display:flex;align-items:flex-end;gap:32px;margin-top:32px}
+.ch-avatar{flex:none;width:88px;height:88px;object-fit:cover;border-radius:6px;outline:1px solid var(--kk-ink);outline-offset:-1px}
+.bubble-a{width:952px;border-radius:6px 6px 6px 0;background:#fff;box-shadow:inset 0 0 0 1px var(--kk-ink),4px 4px 0 0 var(--kk-ink);color:var(--ink-2)}
+.bubble-a a{color:var(--kk-ink);overflow-wrap:anywhere}
+.bubble-a a[href^="mailto:"]{text-decoration:underline 2px var(--kk-accent);text-underline-offset:4px}
+.bubble-a a[href^="tel:"]{text-decoration:none}
+.ch-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:144.5px}
+.ch-meet{margin:0;font:700 28px/1.2 var(--kk-font-display);letter-spacing:-.015em;color:var(--ink-2)}
+.ch-meet span{color:var(--kk-ink)}
+.ch-audit h3{margin:0;font:700 18px/1.4 var(--kk-font-display);letter-spacing:-.02em;color:var(--ink-2)}
+.ch-audit p{margin:12px 0 24px;font-size:16px;line-height:1.8;letter-spacing:-.01em;color:var(--ink-2)}
+@media (max-width:1199px){
+ .contact-hero{padding-top:98px}
+ .bubble{font-size:44px}
+ .bubble-q{width:577px}
+ .bubble-a{width:514px}
+ .ch-row{margin-top:98.4px}
+ .ch-audit p{margin-top:13px;font-size:15px;line-height:1.7}
+}
+@media (max-width:809px){
+ .contact-hero{padding-top:124px}
+ .bubble{padding:24px;font:700 24px/1.2 var(--kk-font-display);letter-spacing:-.015em}
+ .bubble-q{width:auto;border-radius:24px 24px 8px}
+ .ch-answer{flex-direction:column;align-items:flex-start;gap:15.8px;margin-top:19.4px}
+ .ch-avatar{order:2;width:40px;height:40px}
+ .bubble-a{align-self:stretch;width:auto;border-radius:24px 24px 24px 8px}
+ .ch-row{grid-template-columns:minmax(0,1fr);margin-top:72px}
+ .ch-audit p{margin-top:12px;line-height:1.8}
+}
+
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion:reduce){
  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
