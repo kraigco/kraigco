@@ -597,3 +597,6 @@ html :is(a,button,summary,label,input[type=submit],.kk-btn){cursor:url(img/curso
  .hero-scrim{background:rgba(10,10,10,.65)}
  .hero-canvas{opacity:.45}
 }
+/* Pre-paint hide for the hero load sequence (index.html adds .intro-pending only when
+   motion is wanted, and removes it after 3s whatever happens; GSAP removes it sooner). */
+.intro-pending .site-header,.intro-pending .kk-hero .kk-label,.intro-pending .kk-hero .hero-line,.intro-pending .kk-hero .kk-hero-sub,.intro-pending .kk-hero .kk-cta-row,.intro-pending .kk-hero .kk-stats{opacity:0}
