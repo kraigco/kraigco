@@ -173,9 +173,9 @@
 .kk-assure li{display:flex;align-items:center;gap:8px;font-family:var(--kk-font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;line-height:1.4;text-transform:uppercase;color:var(--kk-on-ink-muted)}
 .kk-assure svg{width:16px;height:16px;flex:none;color:var(--kk-accent)}
 
-/* MOTION: quiet by design. Scroll reveals are
-   handled in JS (useReveal). Everything is gated by .kk-anim, which is never
-   set in the Framer canvas, and by the reduced-motion media query. */
+/* MOTION: quiet by design. Scroll reveals are handled in JS (initReveal in
+   site.js); the CSS animations here are gated by .kk-anim and by the
+   reduced-motion media query. */
 .kk-btn svg{transition:transform .18s var(--kk-ease)}
 .kk-btn:hover svg{transform:translateX(3px)}
 @keyframes kk-fade{from{opacity:0}to{opacity:1}}
@@ -243,8 +243,8 @@ html{-webkit-text-size-adjust:100%;color-scheme:dark}
 body{margin:0;background:var(--kk-paper);color:var(--kk-ink);font-family:var(--kk-font-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;height:auto}
 .vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip-link{position:fixed;top:16px;left:16px;z-index:100;padding:12px 16px;border-radius:var(--kk-radius);background:var(--kk-accent);color:var(--kk-on-accent);font:600 16px/1.2 var(--kk-font-body);text-decoration:none;box-shadow:var(--glow);transform:translateY(-200%)}
-.skip-link:focus{transform:none}
+.skip-link{position:fixed;top:16px;left:16px;z-index:100;padding:12px 16px;border-radius:var(--kk-radius);background:var(--kk-accent);color:var(--kk-on-accent);font:600 16px/1.2 var(--kk-font-body);text-decoration:none;transform:translateY(-200%)}
+.skip-link:focus{transform:none;box-shadow:var(--glow)}
 
 /* Hero offset under the fixed header. Tablet keeps the live spacing
    (Framer stacks its 72px in-flow header on top of the desktop 98px offset). */
